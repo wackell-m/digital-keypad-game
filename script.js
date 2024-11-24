@@ -1,41 +1,36 @@
-// JavaScript Code for Digital Keypad
-const keys = document.querySelectorAll('.key');
-const inputDisplay = document.getElementById('input-display');
-const keypad = document.getElementById('keypad');
-const message = document.getElementById('message');
-const clearButton = document.getElementById('clear');
-const submitButton = document.getElementById('submit');
+let input = "";
 
-let input = '';
-const correctCode = '445937';
-
-// Handle button clicks
-keys.forEach(key => {
-  key.addEventListener('click', () => {
+function pressKey(key) {
     if (input.length < 6) {
-      input += key.textContent;
-      inputDisplay.textContent = input;
+        input += key;
+        updateDisplay(input);
     }
-  });
-});
+}
 
-// Clear input
-clearButton.addEventListener('click', () => {
-  input = '';
-  inputDisplay.textContent = 'Enter Code';
-  keypad.style.backgroundColor = 'black'; // Keep background black
-  message.textContent = '';
-});
+function clearDisplay() {
+    input = "";
+    updateDisplay("Enter Code");
+}
 
-// Submit input
-submitButton.addEventListener('click', () => {
-  if (input === correctCode) {
-    keypad.style.backgroundColor = '#28a745'; // Green
-    message.textContent = 'Unlocked';
-    message.style.color = '#00ff00';
-  } else {
-    keypad.style.backgroundColor = '#dc3545'; // Red
-    message.textContent = 'Incorrect';
-    message.style.color = '#00ff00';
-  }
-});
+function checkCode() {
+    if (input === "445937") { // Updated correct password
+        updateDisplay("Access Granted");
+
+        // Show the Next button
+        document.getElementById("next-button").style.display = "block";
+    } else {
+        updateDisplay("Access Denied");
+        input = "";
+    }
+}
+
+function showNumber() {
+    // Hide the keypad and display the number
+    document.querySelector(".keypad-container").style.display = "none";
+    document.getElementById("next-button").style.display = "none";
+    document.getElementById("number-display").style.display = "block";
+}
+
+function updateDisplay(message) {
+    document.getElementById("display").innerText = message;
+}
