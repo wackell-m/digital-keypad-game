@@ -1,74 +1,87 @@
+/* General Styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Courier New', Courier, monospace; /* Monospace font for a retro look */
   text-align: center;
-  background-color: #f0f0f0;
+  background-color: black; /* Black background */
+  color: #00ff00; /* Matrix green text */
+  margin: 0;
+  padding: 0;
 }
 
+/* Keypad Container */
 #keypad {
   margin: 50px auto;
   width: 300px;
   padding: 20px;
-  border: 2px solid #ccc;
+  border: 2px solid #00ff00;
   border-radius: 10px;
-  background-color: #fff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: black; /* Match page background */
+  box-shadow: 0 0 20px #00ff00; /* Glowing effect */
   transition: background-color 0.3s;
 }
 
+/* Message Display */
 #message {
   font-size: 1.2rem;
   margin-bottom: 10px;
   font-weight: bold;
+  color: #00ff00;
+  text-shadow: 0 0 10px #00ff00; /* Glowing effect */
 }
 
+/* Input Display */
 #input-display {
   font-size: 1.5rem;
   margin: 10px 0;
   padding: 10px;
-  border: 1px solid #ccc;
-  background-color: #eee;
+  border: 1px solid #00ff00;
+  background-color: black;
+  color: #00ff00;
   border-radius: 5px;
   min-height: 40px;
+  text-shadow: 0 0 10px #00ff00; /* Glowing text */
 }
 
+/* Button Grid */
 #buttons {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
 
+/* Buttons Styling */
 .key,
 #clear,
 #submit {
   font-size: 1.2rem;
   padding: 10px;
-  border: none;
+  border: 2px solid #00ff00;
   border-radius: 5px;
-  background-color: #007bff;
-  color: white;
+  background-color: black;
+  color: #00ff00;
   cursor: pointer;
-  transition: background-color 0.3s;
+  text-shadow: 0 0 10px #00ff00; /* Glowing text */
+  box-shadow: 0 0 10px #00ff00; /* Glowing effect */
+  transition: all 0.3s ease;
 }
 
+/* Button Hover Effect */
 .key:hover,
 #clear:hover,
 #submit:hover {
-  background-color: #0056b3;
+  background-color: #00ff00;
+  color: black;
+  text-shadow: none; /* Remove glow on hover */
+  box-shadow: 0 0 20px #00ff00;
 }
 
+/* Clear Button */
 #clear {
   grid-column: span 2;
-  background-color: #dc3545;
 }
 
-#clear:hover {
-  background-color: #a71d2a;
-}
-
+/* Submit Button */
 #submit {
-  background-color: #28a745;
-}
-
-#submit:hover {
-  background-color: #1c7a31;
+  background-color: black;
+  border-color: #00ff00;
 }
