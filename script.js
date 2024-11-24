@@ -23,7 +23,7 @@ keys.forEach(key => {
 clearButton.addEventListener('click', () => {
   input = '';
   inputDisplay.textContent = 'Enter Code';
-  keypad.style.backgroundColor = '#fff';
+  keypad.style.backgroundColor = 'black'; // Keep background black
   message.textContent = '';
 });
 
@@ -32,10 +32,10 @@ submitButton.addEventListener('click', () => {
   if (input === correctCode) {
     keypad.style.backgroundColor = '#28a745'; // Green
     message.textContent = 'Unlocked';
-    message.style.color = '#fff';
+    message.style.color = '#00ff00';
   } else {
     keypad.style.backgroundColor = '#dc3545'; // Red
     message.textContent = 'Incorrect';
-    message.style.color = '#fff';
+    message.style.color = '#00ff00';
   }
 });
