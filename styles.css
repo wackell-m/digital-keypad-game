@@ -1,86 +1,87 @@
 /* General Styles */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
-    color: white;
+  font-family: 'Courier New', Courier, monospace; /* Monospace font for a retro look */
+  text-align: center;
+  background-color: black; /* Black background */
+  color: #00ff00; /* Matrix green text */
+  margin: 0;
+  padding: 0;
 }
 
-/* Overall Container */
-.container {
-    display: flex;
-    align-items: center;
-    gap: 50px; /* Space between the image and keypad */
+/* Keypad Container */
+#keypad {
+  margin: 50px auto;
+  width: 300px;
+  padding: 20px;
+  border: 2px solid #00ff00;
+  border-radius: 10px;
+  background-color: black; /* Match page background */
+  box-shadow: 0 0 20px #00ff00; /* Glowing effect */
+  transition: background-color 0.3s;
 }
 
-/* Lollipop Image */
-.image-container img {
-    max-width: 200px;
-    height: auto;
-    border: 2px solid #00ff00;
-    border-radius: 10px;
-    box-shadow: 0 0 20px #00ff00;
+/* Message Display */
+#message {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #00ff00;
+  text-shadow: 0 0 10px #00ff00; /* Glowing effect */
 }
 
-/* Keypad Section */
-.keypad-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+/* Input Display */
+#input-display {
+  font-size: 1.5rem;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #00ff00;
+  background-color: black;
+  color: #00ff00;
+  border-radius: 5px;
+  min-height: 40px;
+  text-shadow: 0 0 10px #00ff00; /* Glowing text */
 }
 
-#display {
-    background-color: black;
-    color: #00ff00;
-    font-family: "Courier New", monospace;
-    font-size: 36px;
-    padding: 15px;
-    width: 300px;
-    text-align: center;
-    border: 2px solid #00ff00;
-    border-radius: 5px;
-    text-shadow: 0 0 10px #00ff00;
-    box-shadow: 0 0 20px #00ff00;
+/* Button Grid */
+#buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }
 
-.keypad {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    gap: 20px;
+/* Buttons Styling */
+.key,
+#clear,
+#submit {
+  font-size: 1.2rem;
+  padding: 10px;
+  border: 2px solid #00ff00;
+  border-radius: 5px;
+  background-color: black;
+  color: #00ff00;
+  cursor: pointer;
+  text-shadow: 0 0 10px #00ff00; /* Glowing text */
+  box-shadow: 0 0 10px #00ff00; /* Glowing effect */
+  transition: all 0.3s ease;
 }
 
-.keypad button {
-    width: 100px;
-    height: 80px;
-    background: black;
-    color: #00ff00;
-    font-family: "Courier New", monospace;
-    font-size: 24px;
-    border: 2px solid #00ff00;
-    border-radius: 10px;
-    text-shadow: 0 0 10px #00ff00;
-    box-shadow: 0 0 20px #00ff00;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
+/* Button Hover Effect */
+.key:hover,
+#clear:hover,
+#submit:hover {
+  background-color: #00ff00;
+  color: black;
+  text-shadow: none; /* Remove glow on hover */
+  box-shadow: 0 0 20px #00ff00;
 }
 
-.keypad button:hover {
-    transform: scale(1.1);
+/* Clear Button */
+#clear {
+  grid-column: span 2;
 }
 
-.keypad button:active {
-    background: #00ff00;
-    color: black;
-}
-
-/* Clear and Enter Buttons */
-.keypad button:nth-last-child(2),
-.keypad button:last-child {
-    grid-column: span 3;
+/* Submit Button */
+#submit {
+  background-color: black;
+  border-color: #00ff00;
 }
