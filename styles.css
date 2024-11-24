@@ -1,72 +1,117 @@
 /* General Styles */
 body {
-  font-family: 'Courier New', Courier, monospace;
-  background-color: black;
-  color: #00ff00;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    color: white;
 }
 
-/* Container */
-#container {
-  display: flex;
-  gap: 30px; /* Space between the paper and keypad */
-  align-items: flex-start;
+.container {
+    display: flex;
+    gap: 50px;
 }
 
-/* Wrinkled Paper Section */
-#paper {
-  background: #f5f5dc; /* Beige paper color */
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4), -5px -5px 15px rgba(0, 0, 0, 0.2);
-  transform: rotate(-3deg); /* Slight rotation for an imperfect look */
-  max-width: 200px;
-  text-align: center;
-  position: relative;
+/* Note Section */
+.note {
+    width: 400px;
+    height: 500px;
+    background: #f5f5dc;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    transform: rotate(-3deg);
 }
 
-/* Wrinkle Effect */
-#paper:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle, rgba(0, 0, 0, 0.2), transparent);
-  opacity: 0.5;
-  mix-blend-mode: multiply;
+.note img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
-/* Lollipop Image */
-#lollipop-image {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto 10px;
+.note .handwritten {
+    font-family: "Patrick Hand", cursive;
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+    position: relative;
 }
 
-/* Handwritten Text */
-#paper-message {
-  font-family: 'Pacifico', cursive; /* Handwriting-like font */
-  font-size: 1.2rem;
-  color: #333;
+.smudge {
+    width: 80px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.1);
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    transform: rotate(-20deg);
+    border-radius: 50%;
 }
 
-/* Keypad Styles (Unchanged from Before) */
-#keypad {
-  margin: auto;
-  width: 300px;
-  padding: 20px;
-  border: 2px solid #00ff00;
-  border-radius: 10px;
-  background-color: black;
-  box-shadow: 0 0 20px #00ff00;
-  transition: background-color 0.3s;
+/* Keypad Section */
+.keypad-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
-/* Other styles remain the same for buttons, inputs, etc. */
+#display {
+    background-color: black;
+    color: #00ff00;
+    font-family: "Courier New", monospace;
+    font-size: 36px;
+    padding: 15px;
+    width: 300px;
+    text-align: center;
+    border: 2px solid #00ff00;
+    border-radius: 5px;
+    text-shadow: 0 0 10px #00ff00;
+    box-shadow: 0 0 20px #00ff00;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 20px;
+}
+
+.keypad button {
+    width: 100px;
+    height: 80px;
+    background: black;
+    color: #00ff00;
+    font-family: "Courier New", monospace;
+    font-size: 24px;
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    text-shadow: 0 0 10px #00ff00;
+    box-shadow: 0 0 20px #00ff00;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.keypad button:hover {
+    transform: scale(1.1);
+}
+
+.keypad button:active {
+    background: #00ff00;
+    color: black;
+}
+
+/* Clear and Enter Buttons */
+.keypad button:nth-last-child(2),
+.keypad button:last-child {
+    grid-column: span 3;
+}
+
+/* Adjust Sizes */
+.note, .keypad-container {
+    transform: scale(1.5); /* Increase size for better visibility */
+}
