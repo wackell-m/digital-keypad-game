@@ -1,36 +1,52 @@
-let input = "";
+// JavaScript Code for Digital Keypad
+const keys = document.querySelectorAll('.key');
+const inputDisplay = document.getElementById('input-display');
+const keypad = document.getElementById('keypad');
+const message = document.getElementById('message');
+const clearButton = document.getElementById('clear');
+const submitButton = document.getElementById('submit');
 
-function pressKey(key) {
+let input = '';
+const correctCode = '445937';
+
+// Handle button clicks
+keys.forEach(key => {
+  key.addEventListener('click', () => {
     if (input.length < 6) {
-        input += key;
-        updateDisplay(input);
+      input += key.textContent;
+      inputDisplay.textContent = input;
     }
-}
+  });
+});
 
-function clearDisplay() {
-    input = "";
-    updateDisplay("Enter Code");
-}
+// Clear input
+clearButton.addEventListener('click', () => {
+  input = '';
+  inputDisplay.textContent = 'Enter Code';
+  keypad.style.backgroundColor = 'black'; // Keep background black
+  message.textContent = '';
+});
 
-function checkCode() {
-    if (input === "445937") { // Updated correct password
-        updateDisplay("Access Granted");
+// Submit input
+submitButton.addEventListener('click', () => {
+  if (input === correctCode) {
+    keypad.style.backgroundColor = '#28a745'; // Green
+    message.textContent = 'Unlocked';
+    message.style.color = '#00ff00';
 
-        // Show the Next button
-        document.getElementById("next-button").style.display = "block";
-    } else {
-        updateDisplay("Access Denied");
-        input = "";
-    }
-}
+    // Fade out "Unlocked" and then show "21"
+    setTimeout(() => {
+      message.style.transition = 'opacity 1s';
+      message.style.opacity = 0; // Fade out
+    }, 1000); // Wait for 1 second before fading out
 
-function showNumber() {
-    // Hide the keypad and display the number
-    document.querySelector(".keypad-container").style.display = "none";
-    document.getElementById("next-button").style.display = "none";
-    document.getElementById("number-display").style.display = "block";
-}
-
-function updateDisplay(message) {
-    document.getElementById("display").innerText = message;
-}
+    setTimeout(() => {
+      message.textContent = '21'; // Change message to "21"
+      message.style.opacity = 1; // Ensure opacity is reset
+    }, 2000); // After fade-out, update message after 2 seconds
+  } else {
+    keypad.style.backgroundColor = '#dc3545'; // Red
+    message.textContent = 'Incorrect';
+    message.style.color = '#00ff00';
+  }
+});
