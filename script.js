@@ -1,52 +1,57 @@
-// JavaScript Code for Digital Keypad
-const keys = document.querySelectorAll('.key');
-const inputDisplay = document.getElementById('input-display');
-const keypad = document.getElementById('keypad');
-const message = document.getElementById('message');
-const clearButton = document.getElementById('clear');
-const submitButton = document.getElementById('submit');
+// Initialize the input string to capture the user's input
+let input = "";
 
-let input = '';
-const correctCode = '445937';
-
-// Handle button clicks
-keys.forEach(key => {
-  key.addEventListener('click', () => {
+// Function to handle keypad button presses
+function pressKey(key) {
+    // Ensure input length does not exceed 6 characters
     if (input.length < 6) {
-      input += key.textContent;
-      inputDisplay.textContent = input;
+        input += key;
+        updateDisplay(input);
     }
-  });
-});
+}
 
-// Clear input
-clearButton.addEventListener('click', () => {
-  input = '';
-  inputDisplay.textContent = 'Enter Code';
-  keypad.style.backgroundColor = 'black'; // Keep background black
-  message.textContent = '';
-});
+// Function to clear the display and reset the input
+function clearDisplay() {
+    input = ""; // Reset the input string
+    updateDisplay("Enter Code"); // Reset display message
+}
 
-// Submit input
-submitButton.addEventListener('click', () => {
-  if (input === correctCode) {
-    keypad.style.backgroundColor = '#28a745'; // Green
-    message.textContent = 'Unlocked';
-    message.style.color = '#00ff00';
+// Function to check the entered code
+function checkCode() {
+    if (input === "445937") {
+        // Correct code to display "Next"
+        updateDisplay("Access Granted");
 
-    // Fade out "Unlocked" and then show "21"
-    setTimeout(() => {
-      message.style.transition = 'opacity 1s';
-      message.style.opacity = 0; // Fade out
-    }, 1000); // Wait for 1 second before fading out
+        // Show the "Next" button
+        document.getElementById("next-button").style.display = "block";
+    } else if (input === "961038") {
+        // Specific code to display the Light Blue Star message
+        updateDisplay("Light Blue Star = 4");
 
-    setTimeout(() => {
-      message.textContent = '21'; // Change message to "21"
-      message.style.opacity = 1; // Ensure opacity is reset
-    }, 2000); // After fade-out, update message after 2 seconds
-  } else {
-    keypad.style.backgroundColor = '#dc3545'; // Red
-    message.textContent = 'Incorrect';
-    message.style.color = '#00ff00';
-  }
-});
+        // Clear input after displaying the success message
+        input = "";
+    } else {
+        // Incorrect code
+        updateDisplay("Access Denied");
+
+        // Reset the input
+        input = "";
+    }
+}
+
+// Function to handle the "Next" button action
+function showNumber() {
+    // Hide the keypad container
+    document.querySelector(".keypad-container").style.display = "none";
+
+    // Hide the "Next" button
+    document.getElementById("next-button").style.display = "none";
+
+    // Show the number display with "21"
+    document.getElementById("number-display").style.display = "block";
+}
+
+// Utility function to update the display message
+function updateDisplay(message) {
+    document.getElementById("display").innerText = message;
+}
