@@ -29,7 +29,11 @@ body {
 
 /* Keypad */
 .keypad-container {
-  display: inline-block;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 buttons per row */
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
   border: 3px solid #00ff00;
   border-radius: 15px;
@@ -44,9 +48,9 @@ body {
   background-color: black;
   border: 3px solid #00ff00;
   border-radius: 10px;
-  width: 60px;
-  height: 60px;
-  margin: 5px;
+  width: 70px;
+  height: 70px;
+  text-align: center;
   cursor: pointer;
   text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
 }
@@ -58,11 +62,11 @@ body {
 
 /* Special Buttons */
 .clear-btn {
-  width: 60px;
+  grid-column: 2 / 3; /* Place in the center */
 }
 
 .enter-btn {
-  width: 60px;
+  grid-column: 3 / 4; /* Place in the last position */
 }
 
 /* Number Display */
