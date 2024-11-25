@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Keypad</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Glowing Keypad</title>
 </head>
 <body>
-    <div class="container">
-        <!-- Keypad Section -->
-        <div class="keypad-container">
-            <div id="display">Enter Code</div>
-            <div class="keypad">
-                <button onclick="pressKey('1')">1</button>
-                <button onclick="pressKey('2')">2</button>
-                <button onclick="pressKey('3')">3</button>
-                <button onclick="pressKey('4')">4</button>
-                <button onclick="pressKey('5')">5</button>
-                <button onclick="pressKey('6')">6</button>
-                <button onclick="pressKey('7')">7</button>
-                <button onclick="pressKey('8')">8</button>
-                <button onclick="pressKey('9')">9</button>
-                <button onclick="pressKey('0')">0</button>
-                <button onclick="clearDisplay()">Clear</button>
-                <button onclick="checkCode()">Enter</button>
-            </div>
-        </div>
-
-        <!-- Next Button (Initially Hidden) -->
-        <button id="next-button" onclick="showNumber()" style="display: none;">Next</button>
-
-        <!-- Number Display (Initially Hidden) -->
-        <div id="number-display" style="display: none;">21</div>
+  <div class="container">
+    <!-- Display Screen -->
+    <div id="display" class="display">Enter Code</div>
+    <!-- Keypad -->
+    <div class="keypad-container">
+      <div class="keypad-row">
+        <button class="keypad-btn" onclick="pressKey('1')">1</button>
+        <button class="keypad-btn" onclick="pressKey('2')">2</button>
+        <button class="keypad-btn" onclick="pressKey('3')">3</button>
+      </div>
+      <div class="keypad-row">
+        <button class="keypad-btn" onclick="pressKey('4')">4</button>
+        <button class="keypad-btn" onclick="pressKey('5')">5</button>
+        <button class="keypad-btn" onclick="pressKey('6')">6</button>
+      </div>
+      <div class="keypad-row">
+        <button class="keypad-btn" onclick="pressKey('7')">7</button>
+        <button class="keypad-btn" onclick="pressKey('8')">8</button>
+        <button class="keypad-btn" onclick="pressKey('9')">9</button>
+      </div>
+      <div class="keypad-row">
+        <button class="keypad-btn" onclick="pressKey('0')">0</button>
+        <button class="keypad-btn clear-btn" onclick="clearDisplay()">Clear</button>
+        <button class="keypad-btn enter-btn" onclick="checkCode()">Enter</button>
+      </div>
     </div>
-
-    <script src="script.js"></script>
+    <!-- "Next" Button -->
+    <button id="next-button" class="next-btn" style="display: none;" onclick="showNumber()">Next</button>
+    <!-- Number Display -->
+    <div id="number-display" class="number-display" style="display: none;">21</div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
