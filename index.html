@@ -3,38 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Keypad Game</title>
   <link rel="stylesheet" href="styles.css">
-  <title>Glowing Keypad</title>
 </head>
 <body>
-  <div class="container">
-    <!-- Display Screen -->
+  <div class="keypad-container">
     <div id="display" class="display">Enter Code</div>
-    <!-- Keypad -->
-    <div class="keypad-container">
-      <div class="keypad-row">
-        <button class="keypad-btn" onclick="pressKey('1')">1</button>
-        <button class="keypad-btn" onclick="pressKey('2')">2</button>
-        <button class="keypad-btn" onclick="pressKey('3')">3</button>
-      </div>
-      <div class="keypad-row">
-        <button class="keypad-btn" onclick="pressKey('4')">4</button>
-        <button class="keypad-btn" onclick="pressKey('5')">5</button>
-        <button class="keypad-btn" onclick="pressKey('6')">6</button>
-      </div>
-      <div class="keypad-row">
-        <button class="keypad-btn" onclick="pressKey('7')">7</button>
-        <button class="keypad-btn" onclick="pressKey('8')">8</button>
-        <button class="keypad-btn" onclick="pressKey('9')">9</button>
-      </div>
-      <div class="keypad-row">
-        <button class="keypad-btn clear-btn" onclick="clearDisplay()">C</button>
-        <button class="keypad-btn" onclick="pressKey('0')">0</button>
-        <button class="keypad-btn enter-btn" onclick="checkCode()">Enter</button>
-      </div>
+    <div class="keypad">
+      <button class="key" onclick="pressKey('1')">1</button>
+      <button class="key" onclick="pressKey('2')">2</button>
+      <button class="key" onclick="pressKey('3')">3</button>
+      <button class="key" onclick="pressKey('4')">4</button>
+      <button class="key" onclick="pressKey('5')">5</button>
+      <button class="key" onclick="pressKey('6')">6</button>
+      <button class="key" onclick="pressKey('7')">7</button>
+      <button class="key" onclick="pressKey('8')">8</button>
+      <button class="key" onclick="pressKey('9')">9</button>
+      <button class="key" onclick="pressKey('0')">0</button>
+      <button class="key clear" onclick="clearDisplay()">Clear</button>
+      <button class="key enter" onclick="submitCode()">Enter</button>
     </div>
-    <!-- Number Display -->
-    <div id="number-display" class="number-display" style="display: none;">21</div>
   </div>
   <script src="script.js"></script>
 </body>
