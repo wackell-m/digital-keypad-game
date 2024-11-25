@@ -58,29 +58,11 @@ body {
 
 /* Special Buttons */
 .clear-btn {
-  width: 130px;
+  width: 60px;
 }
 
 .enter-btn {
-  width: 130px;
-}
-
-/* "Next" Button */
-.next-btn {
-  font-size: 1.5rem;
-  color: black;
-  background-color: #00ff00;
-  border: none;
-  border-radius: 10px;
-  padding: 10px 20px;
-  cursor: pointer;
-  margin-top: 20px;
-  text-shadow: none;
-}
-
-.next-btn:hover {
-  background-color: white;
-  color: #00ff00;
+  width: 60px;
 }
 
 /* Number Display */
@@ -89,4 +71,6 @@ body {
   font-family: "Courier New", Courier, monospace;
   font-size: 3rem;
   text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+  opacity: 0;
+  transition: opacity 1s ease-in;
 }
