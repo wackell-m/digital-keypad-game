@@ -1,80 +1,71 @@
-/* General Styles */
 body {
   background-color: black;
+  font-family: 'Courier New', Courier, monospace;
+  color: green;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
-  font-family: Arial, sans-serif;
 }
 
-/* Container for Keypad */
-.container {
-  text-align: center;
-}
-
-/* Display Screen */
-.display {
-  font-family: "Courier New", Courier, monospace;
-  color: #00ff00;
-  font-size: 2rem;
-  border: 3px solid #00ff00;
-  border-radius: 10px;
-  padding: 15px;
-  margin-bottom: 20px;
-  background-color: black;
-  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
-}
-
-/* Keypad */
 .keypad-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 buttons per row */
-  gap: 15px;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  border: 3px solid #00ff00;
-  border-radius: 15px;
-  background-color: black;
-  box-shadow: 0 0 15px #00ff00;
-}
-
-/* Keypad Buttons */
-.keypad-btn {
-  font-size: 1.5rem;
-  color: #00ff00;
-  background-color: black;
-  border: 3px solid #00ff00;
-  border-radius: 10px;
-  width: 70px;
-  height: 70px;
   text-align: center;
+}
+
+.display {
+  font-size: 24px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 2px solid green;
+  border-radius: 5px;
+  width: 200px;
+  margin: 0 auto;
+  background-color: black;
+  color: green;
+  text-shadow: 0 0 10px green;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.key {
+  font-size: 20px;
+  padding: 15px;
+  border: 2px solid green;
+  border-radius: 5px;
+  background-color: black;
+  color: green;
+  text-shadow: 0 0 10px green;
   cursor: pointer;
-  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
 }
 
-.keypad-btn:active {
-  background-color: #00ff00;
+.key:hover {
+  background-color: #0a0;
+}
+
+.clear {
+  grid-column: span 2;
+  color: red;
+  text-shadow: 0 0 10px red;
+}
+
+.enter {
+  grid-column: span 2;
+  color: green;
+}
+
+.flash-red {
+  background-color: red;
   color: black;
+  text-shadow: 0 0 10px red;
 }
 
-/* Special Buttons */
-.clear-btn {
-  grid-column: span 1;
-}
-
-.enter-btn {
-  grid-column: span 1;
-}
-
-/* Number Display */
-.number-display {
-  color: #00ff00;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 3rem;
-  text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
-  opacity: 0;
-  transition: opacity 1s ease-in;
+.flash-green {
+  background-color: green;
+  color: black;
+  text-shadow: 0 0 10px black;
 }
