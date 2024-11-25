@@ -18,12 +18,22 @@ function clearDisplay() {
 
 // Function to check the entered code
 function checkCode() {
+    const displayElement = document.getElementById("display");
+    const numberDisplay = document.getElementById("number-display");
+
     if (input === "445937") {
-        // Correct code to display "Next"
+        // Correct code: Display "Access Granted"
         updateDisplay("Access Granted");
 
-        // Show the "Next" button
-        document.getElementById("next-button").style.display = "block";
+        // Fade out "Access Granted" and fade in "21"
+        setTimeout(() => {
+            displayElement.style.opacity = "0"; // Fade out the display text
+            setTimeout(() => {
+                displayElement.style.display = "none"; // Hide the display element
+                numberDisplay.style.display = "block"; // Show the "21" element
+                numberDisplay.style.opacity = "1"; // Fade in the "21"
+            }, 1000); // Delay for fade-out animation
+        }, 2000); // Delay after showing "Access Granted"
     } else if (input === "961038") {
         // Specific code to display the Light Blue Star message
         updateDisplay("Light Blue Star = 4");
@@ -39,19 +49,10 @@ function checkCode() {
     }
 }
 
-// Function to handle the "Next" button action
-function showNumber() {
-    // Hide the keypad container
-    document.querySelector(".keypad-container").style.display = "none";
-
-    // Hide the "Next" button
-    document.getElementById("next-button").style.display = "none";
-
-    // Show the number display with "21"
-    document.getElementById("number-display").style.display = "block";
-}
-
 // Utility function to update the display message
 function updateDisplay(message) {
-    document.getElementById("display").innerText = message;
+    const displayElement = document.getElementById("display");
+    displayElement.style.opacity = "1"; // Ensure it's visible
+    displayElement.style.display = "block"; // Ensure it's shown
+    displayElement.innerText = message;
 }
