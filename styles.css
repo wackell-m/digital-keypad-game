@@ -31,7 +31,7 @@ body {
 .keypad-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 buttons per row */
-  gap: 10px;
+  gap: 15px;
   justify-content: center;
   align-items: center;
   padding: 20px;
@@ -62,11 +62,11 @@ body {
 
 /* Special Buttons */
 .clear-btn {
-  grid-column: 2 / 3; /* Place in the center */
+  grid-column: span 1;
 }
 
 .enter-btn {
-  grid-column: 3 / 4; /* Place in the last position */
+  grid-column: span 1;
 }
 
 /* Number Display */
