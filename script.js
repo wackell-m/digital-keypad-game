@@ -35,8 +35,10 @@ function submitCode() {
     display.className = "display flash-green";
     setTimeout(() => {
       display.textContent = unlockCodes[input];
-      display.classList.add("hidden");
-    }, 1000);
+      setTimeout(() => {
+        display.classList.add("hidden");
+      }, 5000); // Keeps the success message for 5 seconds
+    }, 1000); // "Access Granted" shows for 1 second
   } else {
     display.textContent = "Access Denied";
     display.className = "display flash-red";
