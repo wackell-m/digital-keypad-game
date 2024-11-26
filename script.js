@@ -14,12 +14,18 @@ function pressKey(key) {
 
 function clearDisplay() {
   input = "";
-  updateDisplay("Enter Code");
+  resetDisplay();
 }
 
 function updateDisplay(message) {
   const display = document.getElementById("display");
   display.textContent = message;
+}
+
+function resetDisplay() {
+  const display = document.getElementById("display");
+  display.textContent = "Enter Code";
+  display.className = "display";
 }
 
 function submitCode() {
@@ -28,13 +34,14 @@ function submitCode() {
     display.textContent = "Access Granted";
     display.className = "display flash-green";
     setTimeout(() => {
-      document.body.innerHTML = `<div class="keypad-container">${unlockCodes[input]}</div>`;
+      display.textContent = unlockCodes[input];
+      display.classList.add("hidden");
     }, 1000);
   } else {
     display.textContent = "Access Denied";
     display.className = "display flash-red";
     setTimeout(() => {
-      clearDisplay();
+      resetDisplay();
     }, 1000);
   }
 }
